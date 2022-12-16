@@ -6,13 +6,10 @@ featuredImage: android-root-gradient.png
 description: Root your Android 12 Pixel Phone or Install a custom operating system on it. Full Guide + terminology.
 type: "post"
 tags: ["android", "flashing"]
-
-const {frontmatter} = Astro.props;
+layout: '../../layouts/BlogPost.astro'
 ---
 
 import { Mdx } from '../../components/Mdx'
-import Layout from '../../layouts/BaseLayout.astro'
-import BlogPost from '../../layouts/BlogPost.astro'
 export const components = Mdx
 
 <BlogPost title={frontmatter.title} description={frontmatter.description} image={frontmatter.featuredImage} >
