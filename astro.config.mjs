@@ -14,7 +14,7 @@ import prefetch from "@astrojs/prefetch";
 import image from "@astrojs/image";
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 import partytown from "@astrojs/partytown";
@@ -38,7 +38,12 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown(), svelte()],
-  output: "server",
-  adapter: vercel()
+  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown({
+    // Example: Add dataLayer.push as a forwarding-event.
+    config: { 
+      forward: ["dataLayer.push"] ,
+    },
+  }), svelte()],
+  // output: "server",
+  // adapter: vercel()
 });
