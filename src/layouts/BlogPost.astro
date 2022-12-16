@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 const { frontmatter } = Astro.props;
-import Header from "../components/Header.astro";
+import Navigation from "../components/Header.svelte";
 import BaseHead from "../components/BaseHead.astro";
 ---
 
@@ -24,7 +24,7 @@ import BaseHead from "../components/BaseHead.astro";
 		<BaseHead title={frontmatter.title} description={frontmatter.description} image={'/featuredImages/' + frontmatter.featuredImage} />
 	</head>
 	<body class="bg-background text-foreground">
-		<Header client:load />
+		<Navigation client:load />
 		<article class="sm:mx-2 mx-8">
 			<slot />
 			<!-- your content is injected here -->
