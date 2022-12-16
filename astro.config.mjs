@@ -14,6 +14,12 @@ import prefetch from "@astrojs/prefetch";
 import image from "@astrojs/image";
 
 // https://astro.build/config
+import vercel from "@astrojs/vercel/serverless";
+
+// https://astro.build/config
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://divnectar.com',
   markdown: {
@@ -29,5 +35,7 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image()]
+  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown()],
+  output: "server",
+  adapter: vercel()
 });
