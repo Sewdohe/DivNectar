@@ -1,7 +1,10 @@
 ---
 import Footer from "../components/Footer.astro";
-const { title, description } = Astro.props;
+const { frontmatter } = Astro.props;
 import Header from "../components/Header.astro";
+import BaseHead from "../components/BaseHead.astro";
+
+console.log("Hello")
 ---
 
 <html lang="en">
@@ -10,7 +13,7 @@ import Header from "../components/Header.astro";
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script
 			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-2MRGGEC7MM"
+			src="https://www.googletagmanager.com/gtag/js?id=G-13HWC13QKF"
 		></script>
 		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
@@ -18,8 +21,9 @@ import Header from "../components/Header.astro";
 				dataLayer.push(arguments);
 			}
 			gtag("js", new Date());
-			gtag("config", "G-2MRGGEC7MM");
+			gtag("config", "G-13HWC13QKF");
 		</script>
+		<BaseHead title={frontmatter.title} description={frontmatter.description} image={frontmatter.featuredImage} />
 	</head>
 	<body class="bg-background text-foreground">
 		<Header />

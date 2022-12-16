@@ -3,8 +3,11 @@ title: "Android Rooting & Flashing Guide"
 pubDate: 11-2-2021
 slug: "android-guide"
 featuredImage: android-root-gradient.png
+description: Root your Android 12 Pixel Phone or Install a custom operating system on it. Full Guide + terminology.
 type: "post"
 tags: ["android", "flashing"]
+
+const {frontmatter} = Astro.props;
 ---
 
 import { Mdx } from '../../components/Mdx'
@@ -12,7 +15,7 @@ import Layout from '../../layouts/BaseLayout.astro'
 import BlogPost from '../../layouts/BlogPost.astro'
 export const components = Mdx
 
-<BlogPost>
+<BlogPost title={frontmatter.title} description={frontmatter.description} image={frontmatter.featuredImage} >
 # Definitive Guide to Pixel 5 Rooting / Custom Roms
 
 

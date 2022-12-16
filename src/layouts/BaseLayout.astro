@@ -12,8 +12,7 @@ import { SEO } from "astro-seo";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
       type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-13HWC13QKF "
+      src="https://www.googletagmanager.com/gtag/js?id=G-13HWC13QKF"
     ></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
@@ -21,9 +20,9 @@ import { SEO } from "astro-seo";
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-13HWC13QKF ");
+      gtag("config", "G-13HWC13QKF");
     </script>
-    <BaseHead title={SITE_TITLE} {SITE_DESCRIPTION} image="./divnectar.png" />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image="./divnectar.png" />
   </head>
   <body class="bg-background text-foreground">
     <Navigation client:load />
