@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-const { title, description } = Astro.props;
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import Navigation from "../components/Header.svelte";
 import { SEO } from "astro-seo";
 ---
@@ -23,22 +23,7 @@ import { SEO } from "astro-seo";
       gtag("js", new Date());
       gtag("config", "G-13HWC13QKF ");
     </script>
-    <SEO
-      title={title}
-      description={description}
-      openGraph={{
-        basic: {
-          title: title,
-          type: "Atricle",
-          image: "./divnectar.png",
-        },
-        optional: {
-          description: description,
-          siteName: 'Div Nectar'
-        }
-      }}
-    />
-    <!-- <BaseHead title={title} description={description} /> -->
+    <BaseHead title={SITE_TITLE} {SITE_DESCRIPTION} image="./divnectar.png" />
   </head>
   <body class="bg-background text-foreground">
     <Navigation client:load />
