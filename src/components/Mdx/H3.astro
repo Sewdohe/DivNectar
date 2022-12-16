@@ -1,0 +1,7 @@
+---
+const props = Astro.props;
+---
+
+<h3 {...props} class="text-red">
+  <slot /> <!-- Be sure to add a `<slot/>` for child content! -->
+</h3>

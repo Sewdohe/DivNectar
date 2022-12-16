@@ -1,0 +1,7 @@
+---
+const props = Astro.props;
+---
+
+<p {...props} class="text-foreground my-4">
+  <slot /> <!-- Be sure to add a `<slot/>` for child content! -->
+</p>
