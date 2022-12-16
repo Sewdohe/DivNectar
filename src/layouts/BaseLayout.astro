@@ -25,7 +25,7 @@ import { SEO } from "astro-seo";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image="/divnectar.png" />
   </head>
   <body class="bg-background text-foreground">
-    <Navigation />
+    <Navigation client:load />
     <article>
       <slot />
       <!-- your content is injected here -->
