@@ -3,8 +3,6 @@ import Footer from "../components/Footer.astro";
 const { frontmatter } = Astro.props;
 import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
-
-console.log("Hello")
 ---
 
 <html lang="en">
@@ -23,11 +21,11 @@ console.log("Hello")
 			gtag("js", new Date());
 			gtag("config", "G-13HWC13QKF");
 		</script>
-		<BaseHead title={frontmatter.title} description={frontmatter.description} image={frontmatter.featuredImage} />
+		<BaseHead title={frontmatter.title} description={frontmatter.description} image={'./featuredImage' + frontmatter.featuredImage} />
 	</head>
 	<body class="bg-background text-foreground">
 		<Header />
-		<article class="mx-12 sm:mx-2">
+		<article class="sm:mx-2 mx-8">
 			<slot />
 			<!-- your content is injected here -->
 		</article>
