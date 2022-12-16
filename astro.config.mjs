@@ -20,6 +20,9 @@ import vercel from "@astrojs/vercel/serverless";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
+import svelte from "@astrojs/svelte";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://divnectar.com',
   markdown: {
@@ -35,7 +38,7 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown()],
+  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown(), svelte()],
   output: "server",
   adapter: vercel()
 });
