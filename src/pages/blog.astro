@@ -16,21 +16,69 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 
 <MySiteLayout>
 	<section>
-		<ul>
-			{
-				posts.map((post) => (
-					<li>
-						<time datetime={post.frontmatter.pubDate}>
-							{new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
-								year: "numeric",
-								month: "short",
-								day: "numeric",
-							})}
-						</time>
-						<a href={post.url}>{post.frontmatter.title}</a>
-					</li>
-				))
-			}
-		</ul>
+		<div class="container my-12 mx-auto px-4 md:px-12">
+			<div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+				{
+					posts.map((post) => (
+						<>
+							<article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg">
+								<a href={post.url}>
+									<img
+										alt="Placeholder"
+										class="block h-auto w-full"
+										src="https://picsum.photos/600/400/?random"
+									/>
+								</a>
+
+								<header class="flex items-center justify-between leading-tight p-2 md:p-4">
+									<h1 class="text-lg">
+										<a
+											class="no-underline hover:underline text-blue"
+											href={post.url}
+										>
+											{post.frontmatter.title}
+										</a>
+									</h1>
+									<time
+										class="text-pink text-sm"
+										datetime={post.frontmatter.pubDate}
+									>
+										{new Date(post.frontmatter.pubDate).toLocaleDateString(
+											"en-us",
+											{
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											}
+										)}
+									</time>
+								</header>
+
+								<footer class="flex items-center justify-between leading-none p-2 md:p-4">
+									<a
+										class="flex items-center no-underline hover:underline text-black"
+										href="#"
+									>
+										<img
+											alt="Placeholder"
+											class="block rounded-full"
+											src="https://picsum.photos/32/32/?random"
+										/>
+										<p class="ml-2 text-orange text-sm">Sewdohe</p>
+									</a>
+									<a
+										class="no-underline text-grey-darker hover:text-red-dark"
+										href="#"
+									>
+										<span class="hidden">Like</span>
+										<i class="fa fa-heart" />
+									</a>
+								</footer>
+							</article>
+						</>
+					))
+				}
+			</div>
+		</div>
 	</section>
 </MySiteLayout>

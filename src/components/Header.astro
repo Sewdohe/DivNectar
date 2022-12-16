@@ -4,16 +4,18 @@ import { SITE_TITLE } from "../config";
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
+import { Image, Picture } from "@astrojs/image/components";
+import divNectarLogo from "../assets/divnectar.png";
 ---
 
-<nav class="bg-gray-800">
+<nav class="bg-surface">
 	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 				<!-- Mobile menu button-->
 				<button
 					type="button"
-					class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+					class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-backgroundAlt hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 					aria-controls="mobile-menu"
 					aria-expanded="false"
 				>
@@ -66,32 +68,26 @@ const currentPath = pathname.slice(1); // remove the first "/"
 				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
 			>
 				<div class="flex flex-shrink-0 items-center">
-					<img
-						class="block h-8 w-auto lg:hidden"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
-					/>
-					<img
-						class="hidden h-8 w-auto lg:block"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
-					/>
+					<Image src={divNectarLogo} height={70} alt="divnectar logo" />
 				</div>
-				<div class="hidden sm:ml-6 sm:block">
-					<div class="flex space-x-4">
+				<div class=" h-16 hidden sm:ml-6 sm:block">
+					<div class="flex items-center justify-center space-x-4">
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 						<a
 							href="/"
-							class="bg-surface text-green px-3 py-2 rounded-md text-sm font-medium"
+							class={currentPath === ""
+								? "bg-surface text-green px-3 py-2 rounded-md text-sm font-medium"
+								: "text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"}
 							aria-current="page">Home</a
 						>
 
 						<a
 							href="/blog"
-							class="text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"
+							class={currentPath.includes("blog")
+								? "bg-surface text-green px-3 py-2 rounded-md text-sm font-medium"
+								: "text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"}
 							>Blog</a
 						>
-
 					</div>
 				</div>
 			</div>
@@ -103,27 +99,19 @@ const currentPath = pathname.slice(1); // remove the first "/"
 		<div class="space-y-1 px-2 pt-2 pb-3">
 			<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 			<a
-				href="#"
-				class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-				aria-current="page">Dashboard</a
+				href="/"
+				class={currentPath === ""
+					? "bg-surface text-green px-3 py-2 rounded-md text-sm font-medium"
+					: "text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"}
+				aria-current="page">Home</a
 			>
 
 			<a
-				href="#"
-				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-				>Team</a
-			>
-
-			<a
-				href="#"
-				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-				>Projects</a
-			>
-
-			<a
-				href="#"
-				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-				>Calendar</a
+				href="/blog"
+				class={currentPath.includes("blog")
+					? "bg-surface text-green px-3 py-2 rounded-md text-sm font-medium"
+					: "text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"}
+				>Blog</a
 			>
 		</div>
 	</div>
