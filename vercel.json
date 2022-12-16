@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/tag/",
-      "destination": "https://www.googletagmanager.com/gtag/js?id=G-2MRGGEC7MM"
-    }
-  ]
-}
