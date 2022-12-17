@@ -3,6 +3,12 @@ import Footer from "../components/Footer.astro";
 const { frontmatter } = Astro.props;
 import Navigation from "../components/Header.svelte";
 import BaseHead from "../components/BaseHead.astro";
+import { createOgImage } from "../lib/createOgImage"
+
+const ogImage = createOgImage({
+    title: frontmatter.title,
+    meta: ["divnectar.com", frontmatter.pubDate, ...frontmatter.tags].join(" · "),
+  })
 ---
 
 <html lang="en">
@@ -24,6 +30,21 @@ import BaseHead from "../components/BaseHead.astro";
 		<BaseHead title={frontmatter.title} description={frontmatter.description} image={'/featuredImages/' + frontmatter.featuredImage} />
 	</head>
 	<body class="bg-background text-foreground">
+		<svg
+      class="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
+      width="100%"
+      height="100%"
+      ><filter id="pedroduarteisalegend"
+        ><feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.80"
+          numOctaves="4"
+          stitchTiles="stitch"></feTurbulence>
+      </filter><rect
+        width="100%"
+        height="100%"
+        filter="url(#pedroduarteisalegend)"></rect>
+    </svg>
 		<Navigation client:load />
 		<article class="sm:mx-2 mx-8">
 			<slot />
