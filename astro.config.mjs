@@ -17,7 +17,7 @@ import image from "@astrojs/image";
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
-import partytown from "@astrojs/partytown";
+// import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 import svelte from "@astrojs/svelte";
@@ -38,12 +38,14 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown({
-    config: { 
-      debug: true,
-      forward: ["dataLayer.push"] ,
-    },
-  }), svelte()],
+  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), 
+  // partytown({
+  //   config: { 
+  //     debug: true,
+  //     // forward: ["dataLayer.push"] ,
+  //   },
+  // }), 
+  svelte()],
   output: "server",
   adapter: vercel()
 });
