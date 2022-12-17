@@ -24,13 +24,14 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 								<a href={post.url}>
 									<img
 										alt="Placeholder"
-										class="block h-auto w-full"
+										class="block h-auto relative w-full"
+										style="z-index: 3"
 										src={'/featuredImages/' + post.frontmatter.featuredImage}
 									/>
 								</a>
 
 								<header class="flex items-center justify-between leading-tight p-4 md:p-4">
-									<h1 class="text-2xl md:text-xl sm:text-lg font-extrabold">
+									<h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
 										<a
 											class="no-underline hover:underline text-blue"
 											href={post.url}

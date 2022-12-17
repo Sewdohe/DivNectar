@@ -7,6 +7,18 @@ import { createOgImage } from "../lib/createOgImage"
 import Navigation from "../components/Navbar.svelte";
 ---
 
+<!-- <script>
+  import Blobity from 'blobity';
+  const options = { 
+    color: 'rgb(180, 180, 180)',
+    focusableElementsOffsetX: 4,
+    focusableElementsOffsetY: 4,
+		zIndex: 1
+  };
+  new Blobity(options);
+</script> -->
+	
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -26,21 +38,6 @@ import Navigation from "../components/Navbar.svelte";
 		<BaseHead title={frontmatter.title} description={frontmatter.description} image={'/featuredImages/' + frontmatter.featuredImage} />
 	</head>
 	<body class="bg-background text-foreground">
-		<svg
-      class="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
-      width="100%"
-      height="100%"
-      ><filter id="pedroduarteisalegend"
-        ><feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.80"
-          numOctaves="4"
-          stitchTiles="stitch"></feTurbulence>
-      </filter><rect
-        width="100%"
-        height="100%"
-        filter="url(#pedroduarteisalegend)"></rect>
-    </svg>
 		<Navigation title={frontmatter.title} client:load />
 		<article class="pt-48 pb-24 sm:md:pt-64 mx-12 md:mx-8 sm:md-2">
 			<slot />

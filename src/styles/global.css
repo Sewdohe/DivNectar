@@ -6,7 +6,6 @@
 article {
 	padding-bottom: 1rem;
 }
-
 h1 {
 	@apply text-6xl py-4;
 }
@@ -27,6 +26,10 @@ h6 {
 }
 a {
 	@apply text-blue;
+	z-index: 2;
+}
+img {
+	z-index: 2;
 }
 
 .astro-code {

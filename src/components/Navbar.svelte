@@ -8,7 +8,7 @@
 </script>
 
 <!-- navbar goes here -->
-<nav class="bg-navbar shadow-lg top-0 backdrop-blur-md h-70 fixed w-screen">
+<nav class="bg-navbar shadow-lg top-0 backdrop-blur-md z-20 h-70 fixed w-screen">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between">
       <div class="flex space-x-4">
