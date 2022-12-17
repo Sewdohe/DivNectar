@@ -38,13 +38,13 @@
       </div> -->
     </div>
   </div>
-  {#if title}
+  <!-- {#if title != "DivNectar"}
     <h1
       class="text-green font-extrabold leading-tighter tracking-tighter mb-4 font-heading text-center"
     >
       {title}
     </h1>
-  {/if}
+  {/if} -->
 </nav>
 
 <style>
