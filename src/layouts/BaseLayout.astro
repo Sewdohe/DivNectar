@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Navigation from "../components/Navbar.svelte";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -12,54 +13,38 @@ interface Props {
   prev?: string;
   canonicalURL?: string;
 }
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = './divnectar.png', } = Astro.props as Props;
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = "./divnectar.png",
+} = Astro.props as Props;
 ---
 
 <script>
   // @ts-ignore
-  import Swup from 'swup'
+  import Swup from "swup";
   // @ts-ignore
-  import SwupSlideTheme from '@swup/slide-theme'
+  import SwupSlideTheme from "@swup/slide-theme";
   // @ts-ignore
-  import SwupHeadPlugin from '@swup/head-plugin'
+  import SwupHeadPlugin from "@swup/head-plugin";
   // @ts-ignore
-  import SwupScrollPlugin from '@swup/scroll-plugin';
+  import SwupScrollPlugin from "@swup/scroll-plugin";
 
   const swup = new Swup({
-    plugins: [new SwupScrollPlugin(), new SwupHeadPlugin(), new SwupSlideTheme()],
-  })
+    plugins: [
+      new SwupScrollPlugin(),
+      new SwupHeadPlugin(),
+      new SwupSlideTheme(),
+    ],
+  });
 </script>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <script
-      type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-2MRGGEC7MM"
-    ></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-2MRGGEC7MM");
-    </script> -->
-    <!-- <GoogleAnalytics id="G-2MRGGEC7MM" partytown={true} /> -->
-    <script
-      defer
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2MRGGEC7MM"
-    ></script>
-    <script defer>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-2MRGGEC7MM");
-    </script>
+    <!-- Google Analytics Code -->
+    <Analytics />
 
     <BaseHead
       title={SITE_TITLE}
