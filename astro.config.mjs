@@ -44,6 +44,6 @@ export default defineConfig({
       forward: ["dataLayer.push"] ,
     },
   }), svelte()],
-  output: "server",
-  adapter: vercel()
+  // output: "server",
+  // adapter: vercel()
 });

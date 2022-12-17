@@ -27,7 +27,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = './divnectar
 
   import { inject } from '@vercel/analytics';
 
-  inject();
+  inject({ mode: 'production'});
 
 
   const swup = new Swup({
