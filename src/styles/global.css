@@ -3,6 +3,10 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+article {
+	padding-bottom: 1rem;
+}
+
 h1 {
 	@apply text-6xl py-4;
 }
@@ -23,4 +27,8 @@ h6 {
 }
 a {
 	@apply text-blue;
+}
+
+.astro-code {
+  font-family: 'OperatorMono', sans-serif;
 }

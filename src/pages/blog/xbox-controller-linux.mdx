@@ -6,14 +6,13 @@ featuredImage: opengraph-xbox.png
 description: "Learn to configure an Xbox One \ Xbox 360 Controller on a Linux system. Full guide."
 category: Configuration
 tags: ["linux", "desktop customization", "configuration", "xbox controller"]
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogLayout.astro'
 ---
 
 import { Mdx } from '../../components/Mdx'
 export const components = Mdx
 
 
-# Xbox One Bluetooth on Linux
 Configure an Xbox360 or Xbox One controller to work on your Linux system using [https:https://aur.archlinux.org/packages/xpadneo-dkms](XpadneoDKMS) open-source driver!! Often times when trying to pair an Xbox controller, the computer will attempt pairing but the Xbox light on the controller won't remain lit after pairing. Read on my dear friend!
 
 
@@ -21,8 +20,8 @@ Configure an Xbox360 or Xbox One controller to work on your Linux system using [
 
 ## Prereqs
 
-*** Installing
-**** Prereqs:
+Installing Prereqs:
+
 ```shell
 # ARCH
 sudo pacman -S dkms linux-headers bluez bluez-utils

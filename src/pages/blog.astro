@@ -1,6 +1,5 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -21,7 +20,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 				{
 					posts.map((post) => (
 						<>
-							<article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg">
+							<article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg max-w-lg">
 								<a href={post.url}>
 									<img
 										alt="Placeholder"
@@ -31,7 +30,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 								</a>
 
 								<header class="flex items-center justify-between leading-tight p-4 md:p-4">
-									<h1 class="text-lg">
+									<h1 class="text-2xl md:text-xl sm:text-lg font-extrabold">
 										<a
 											class="no-underline hover:underline text-blue"
 											href={post.url}
@@ -40,7 +39,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 										</a>
 									</h1>
 									<time
-										class="text-pink text-sm"
+										class="text-pink text-lg"
 										datetime={post.frontmatter.pubDate}
 									>
 										{new Date(post.frontmatter.pubDate).toLocaleDateString(

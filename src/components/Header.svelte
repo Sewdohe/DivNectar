@@ -5,7 +5,7 @@
   }
 </script>
 
-<nav class="bg-surface">
+<nav class="bg-background border-bottom border-green">
 	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -72,9 +72,8 @@
 				<div class="flex flex-shrink-0 items-center">
 					<img  style="height: 70px" src="/divnectar.png" height="70" alt="divnectar logo" />
 				</div>
-				<div class=" h-16 hidden sm:ml-6 sm:block">
-					<div class="flex items-center justify-center space-x-4">
-						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+				<div class="nav-link-container h-full hidden sm:ml-6 sm:flex justify-center items-center">
+					<div class="nav-links flex justify-center h-full space-x-4">
 						<a
 							href="/"
 							class={"text-purple hover:bg-surface hover:text-green px-3 py-2 rounded-md text-sm font-medium"}

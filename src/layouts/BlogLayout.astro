@@ -1,9 +1,10 @@
 ---
 import Footer from "../components/Footer.astro";
 const { frontmatter } = Astro.props;
-import Navigation from "../components/Header.svelte";
+// import Navigation from "../components/Header.svelte";
 import BaseHead from "../components/BaseHead.astro";
 import { createOgImage } from "../lib/createOgImage"
+import Navigation from "../components/Navbar.svelte";
 ---
 
 <html lang="en">
@@ -40,10 +41,9 @@ import { createOgImage } from "../lib/createOgImage"
         height="100%"
         filter="url(#pedroduarteisalegend)"></rect>
     </svg>
-		<Navigation client:load />
-		<article class="sm:mx-2 mx-8">
+		<Navigation title={frontmatter.title} client:load />
+		<article class="pt-48 pb-24 sm:md:pt-64 mx-12 md:mx-8 sm:md-2">
 			<slot />
-			<!-- your content is injected here -->
 		</article>
 		<Footer />
 	</body>
