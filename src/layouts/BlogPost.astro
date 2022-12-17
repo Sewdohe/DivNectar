@@ -4,11 +4,6 @@ const { frontmatter } = Astro.props;
 import Navigation from "../components/Header.svelte";
 import BaseHead from "../components/BaseHead.astro";
 import { createOgImage } from "../lib/createOgImage"
-
-const ogImage = createOgImage({
-    title: frontmatter.title,
-    meta: ["divnectar.com", frontmatter.pubDate, ...frontmatter.tags].join(" · "),
-  })
 ---
 
 <html lang="en">
