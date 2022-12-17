@@ -39,8 +39,8 @@ export default defineConfig({
     }
   },
   integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown({
-    // Example: Add dataLayer.push as a forwarding-event.
     config: { 
+      debug: true,
       forward: ["dataLayer.push"] ,
     },
   }), svelte()],
