@@ -6,21 +6,29 @@ featuredImage: opengraph-xbox.png
 description: "Learn to configure an Xbox One \ Xbox 360 Controller on a Linux system. Full guide."
 category: Configuration
 tags: ["linux", "desktop customization", "configuration", "xbox controller"]
-layout: '../../layouts/BlogLayout.astro'
+layout: "../../layouts/BlogLayout.astro"
 ---
 
-import { Mdx } from '../../components/Mdx'
-export const components = Mdx
+import { Mdx } from "../../components/Mdx";
+export const components = Mdx;
 
+# Xbox 360/One Controller Linux
 
-Configure an Xbox360 or Xbox One controller to work on your Linux system using [https:https://aur.archlinux.org/packages/xpadneo-dkms](XpadneoDKMS) open-source driver!! Often times when trying to pair an Xbox controller, the computer will attempt pairing but the Xbox light on the controller won't remain lit after pairing. Read on my dear friend!
+Configure an Xbox360 or Xbox One controller to work on your Linux system using [https://github.com/atar-axis/xpadneo](XpadneoDKMS) open-source driver!!
 
+## The Problem
 
-[Gatsby](https://www.gatsbyjs.org/) is a free and open source framework for developing blazing fast websites and apps.
+Often times when trying to pair an Xbox controller, the computer will attempt pairing but the Xbox light on the controller won't remain lit after pairing.
+Beyond this, in my experience, the default controller mappings for Xbox controllers were never right. I'd start Elden Ring and my joystick directions would make sword swipes
+and other obtuse, enraging things.
+
+If you've had any of these problems, please, read on my dear friend!
 
 ## Prereqs
 
-Installing Prereqs:
+You'll need linux kernel-headers for XpadNeo to work. Install them with the command for your distro below:
+
+Installing Headers:
 
 ```shell
 # ARCH
@@ -34,30 +42,18 @@ sudo apt-get install dkms raspberrypi-kernel-headers
 ```
 
 ## Installing XpadNeo
+
 Installation
 
-- Download the Repository to your local machine git clone https://github.com/atar-axis/xpadneo.git
-- cd xpadneo
-- If using DKMS, run sudo ./install.sh
-- If not using DKMS, follow steps above (generic distribution)
-    Done!
+1. Download the Repository to your local machine with: `git clone https://github.com/atar-axis/xpadneo.git`
+2. run `cd xpadneo`
+3. run `sudo ./install.sh`
 
-**** Connecting the controller via the terminal:
-```shell
-    sudo bluetoothctl
-    [bluetooth]# scan on
-    wait until all available devices are listed (otherwise it may be hard to identify which one is the gamepad)
-    push the connect button on upper side of the gamepad, and hold it down until the light starts flashing fast
-    wait for the gamepad to show up in bluetoothctl, remember the address (e.g. `C8:3F:26:XX:XX:XX`)
-    [bluetooth]# scan off to stop scanning as it may interfere with properly pairing the controller
-    [bluetooth]# pair \<MAC>
-    [bluetooth]# trust \<MAC>
-    [bluetooth]# connect \<MAC> (should usually not be needed but there are open bugs)
-    The \<MAC> parameter is optional if the command line already shows the controller name
-```
+XpadNeo should be installed now.
 
-## Config Files
-Edit the file `/etc/bluetooth/main.conf` with:
+## Bluetooth Config
+
+Edit the file `/etc/bluetooth/main.conf`, removing the `#` character to uncomment these lines. Change them is need be.
 
 ```shell
 [LE]
@@ -69,3 +65,26 @@ ConnectionLatency=0
 ControllerMode = dual
 JustWorksRepairing = confirm
 ```
+
+After changing this file, either restart your PC for the bluetooth config and XpadNeo to take effect.
+
+## Connecting the controller:
+
+```shell
+sudo bluetoothctl
+[bluetooth]# scan on
+wait until all available devices are listed (otherwise it may be hard to identify which one is the gamepad)
+push the connect button on upper side of the gamepad, and hold it down until the light starts flashing fast
+wait for the gamepad to show up in bluetoothctl, remember the address (e.g. `C8:3F:26:XX:XX:XX`)
+[bluetooth]# scan off to stop scanning as it may interfere with properly pairing the controller
+[bluetooth]# pair \<MAC>
+[bluetooth]# trust \<MAC>
+[bluetooth]# connect \<MAC> (should usually not be needed but there are open bugs)
+The \<MAC> parameter is optional if the command line already shows the controller name
+```
+
+**Note:** If your distro has a GUI bluetooth manager, feel free to use that instead. You don't HAVE to connect via the terminal.
+
+## All Done! 🎉
+
+Your controllers Xbox light should stay lit after connecting now. To test it, start up Steam in big picture mode and test if the controller is working properly.

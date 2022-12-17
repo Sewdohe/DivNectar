@@ -8,7 +8,7 @@
 </script>
 
 <!-- navbar goes here -->
-<nav class="bg-navbar shadow-lg top-0 backdrop-blur-md z-20 h-70 fixed w-screen">
+<nav class="bg-navbar shadow-lg top-0 backdrop-blur-xl z-20 h-70 fixed w-screen">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between">
       <div class="flex space-x-4">
@@ -32,19 +32,11 @@
       </div>
 
       <!-- secondary nav -->
-      <!-- <div class="hidden md:flex items-center space-x-1">
-        <a href="" class="py-5 px-3">Login</a>
-        <a href="" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</a>
-      </div> -->
+      <div class="hidden md:flex items-center space-x-1">
+        <a href="https://github.com/sewdohe" class="py-5 px-3">Github</a>
+      </div>
     </div>
   </div>
-  <!-- {#if title != "DivNectar"}
-    <h1
-      class="text-green font-extrabold leading-tighter tracking-tighter mb-4 font-heading text-center"
-    >
-      {title}
-    </h1>
-  {/if} -->
 </nav>
 
 <style>
