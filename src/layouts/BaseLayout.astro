@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Navigation from "../components/Navbar.svelte";
+import { inject } from '@vercel/analytics';
 
 interface Props {
   title: string;
@@ -13,6 +14,7 @@ interface Props {
   canonicalURL?: string;
 }
 const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = './divnectar.png', } = Astro.props as Props;
+inject();
 ---
 
 <script>
