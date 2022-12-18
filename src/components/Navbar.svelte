@@ -28,6 +28,10 @@
             href="/blog"
             class="py-5 px-3 text-purple hover:text-green font-bold transition-all">Blog</a
           >
+          <a
+            href="/about"
+            class="py-5 px-3 text-purple hover:text-green font-bold transition-all">Resume</a
+          >
         </div>
       </div>
 

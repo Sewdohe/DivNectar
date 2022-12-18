@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title={"Josh Melton - About"} description={"About Josh Melton"}>
+  <section class="pt-12 pb-24 m-auto max-w-6xl">
+    <div class="grid gap-5 lg:grid-cols-3">
+      <!-- Left side column -->
+      <div class="space-y-5">
+        <!-- User Block -->
+        <div class="bg-surface rounded-xl">
+          <div class="shadow rounded-t-xl overflow-hidden">
+            <div
+              class="h-32 bg-cover"
+              style="background-image: url('https://placeimg.com/400/150/any');"
+            >
+            </div>
+          </div>
+          <div class="pt-14 p-7 bg-surface rounded-b-xl relative">
+            <img
+              src="https://placeimg.com/100/100/any"
+              alt="Avatar"
+              class="rounded-xl"
+            />
+            <div class="text-lg font-semibold mb-1.5">Josh Melton</div>
+            <div class="text-sm text-gray mb-7">Hobbiest Developer</div>
+          </div>
+        </div>
+
+        <!-- Information Block -->
+        <div class="block-section">
+          <div class="bg-surface rounded-xl p-7">
+            <h2 class="block-title">Information</h2>
+            <div class="space-y-2">
+              <div class="flex justify-between">
+                <div class="text-gray-400">Location</div>
+                <div class="font-medium text-right text-gray-600">
+                  North Carolina
+                </div>
+              </div>
+              <div class="flex justify-between">
+                <div class="text-gray-400">Experience</div>
+                <div class="font-medium text-right text-gray-600">8+ Years</div>
+              </div>
+              <div class="flex justify-between">
+                <div class="text-gray-400">Availability</div>
+                <div class="font-medium text-right text-gray-600">
+                  Seeking Employment
+                </div>
+              </div>
+              <div class="flex justify-between">
+                <div class="text-gray-400">Relocation</div>
+                <div class="font-medium text-right text-gray-600">No</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Block -->
+          <div class="pt-4 block-section flow-root">
+            <div class="bg-surface rounded-xl p-7">
+              <h2 class="block-title">Skills</h2>
+              <div class="m-2 flex flex-wrap">
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >JavaScript</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >React</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >SQL</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >HTML/CSS</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >Rust</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >Tailwind</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >APIs</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >Authentication</span
+                >
+                <span class="bg-backgroundAlt p-2 m-2 text-white rounded-md"
+                  >Git/GitHub</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side column -->
+      <div class="space-y-5 lg:col-span-2">
+        <div class="pb-0 block-section">
+
+          <!-- Start About Me Block -->
+          <div class="bg-surface rounded-xl p-7">
+
+              <h2 class="block-title">About me</h2>
+              <p class="text-gray-600 mb-5">
+                My name is Josh Melton. I started web development very young...around 12-13 years old. I still remember quite fondly creating my first ugly webpage
+                with a brushed-metal background and bold red text. I've evolved <em>quite</em> a bit since then though...however, my love for development has only
+                flourished. Years and years later I still live, breath, and sleep code. Staying up to date with the newest frameworks and learning new syntactical-sugar 
+                are some of my favorite activities. I've been hoping for years that my experience will speak for itself and a company will hire me despite being a self-taught
+                developer. Thank you for taking the time to read my about me section!
+              </p>
+    
+              <div class="flex flex-col space-y-4">
+                <a href="mailto:sewdohe@protonmail.com" class="mail-link social-link-hover">
+                  <i class="bx bx-at text-xl"></i>
+                  <span>sewdohe@protonmail.com</span>
+                </a>
+    
+                <ul class="flex space-x-5">
+                  <li>
+                    <a href="#0" class="social-link-hover">
+                      <i class="bx bxl-facebook-circle text-2xl"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0" class="social-link-hover">
+                      <i class="bx bxl-twitter text-2xl"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0" class="social-link-hover">
+                      <i class="bx bxl-github text-2xl"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+    
+              <div class="border-t border-gray-200 my-5"></div>
+    
+              <ul class="flex space-x-8 font-medium">
+                <li>
+                  <a
+                    href="https://github.com/sewdohe"
+                    class="menu-link menu-link-hover">GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="/blog" class="menu-link menu-link-hover"
+                    >Blog</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
