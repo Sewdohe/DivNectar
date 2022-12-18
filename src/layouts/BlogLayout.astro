@@ -1,10 +1,19 @@
 ---
 const { frontmatter } = Astro.props;
+console.log(frontmatter)
 import BaseLayout from "./BaseLayout.astro";
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  next?: string;
+  prev?: string;
+  canonicalURL?: string;
+}
 ---
 	
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description} image={frontmatter.featuredImage}>
+<BaseLayout title={frontmatter.title} description={frontmatter.description} image={'/featuredImages/' + frontmatter.featuredImage}>
 	<article class="mx-12 md:mx-8 sm:md-2">
 		<slot />
 	</article>
