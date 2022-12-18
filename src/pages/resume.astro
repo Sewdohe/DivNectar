@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title={"Josh Melton - About"} description={"About Josh Melton"}>
-  <section class="pt-12 pb-24 m-auto max-w-6xl">
+  <section class="flex justify-center pt-12 pb-24 mx-8 max-w-6xl">
     <div class="grid gap-5 lg:grid-cols-3">
       <!-- Left side column -->
       <div class="space-y-5">
@@ -12,15 +12,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="shadow rounded-t-xl overflow-hidden">
             <div
               class="h-32 bg-cover"
-              style="background-image: url('https://placeimg.com/400/150/any');"
+              style="background-image: url('./resume-card-bg.png');"
             >
             </div>
           </div>
           <div class="pt-14 p-7 bg-surface rounded-b-xl relative">
             <img
-              src="https://placeimg.com/100/100/any"
+              src="./me.png"
               alt="Avatar"
-              class="rounded-xl"
+              style="height: 100px"
+              class="rounded-md outline outline-green outline-2 absolute -top-12 h-100px"
             />
             <div class="text-lg font-semibold mb-1.5">Josh Melton</div>
             <div class="text-sm text-gray mb-7">Hobbiest Developer</div>
