@@ -42,7 +42,7 @@ export default defineConfig({
   partytown({
     config: { 
       debug: true,
-      // forward: ["dataLayer.push"] ,
+      forward: ["dataLayer.push"] ,
     },
   }), 
   svelte()],
