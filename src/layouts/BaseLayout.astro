@@ -17,7 +17,7 @@ interface Props {
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image,
+  image = "./divnectar.png",
 } = Astro.props as Props;
 
 console.log(image)
@@ -50,9 +50,9 @@ console.log(image)
     <Analytics />
 
     <BaseHead
-      title={SITE_TITLE}
-      description={SITE_DESCRIPTION}
-      image="/divnectar.png"
+      title={title}
+      description={description}
+      image={image}
     />
   </head>
   <body class="bg-background antialiased text-foreground">
