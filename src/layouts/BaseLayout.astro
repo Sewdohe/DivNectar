@@ -13,11 +13,14 @@ interface Props {
   prev?: string;
   canonicalURL?: string;
 }
+
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image = "./divnectar.png",
+  image,
 } = Astro.props as Props;
+
+console.log(image)
 ---
 
 <script>
