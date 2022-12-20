@@ -1,4 +1,8 @@
 <script>
+  import Fa from 'svelte-fa/src/fa.svelte'
+  import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+  import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+
   export let title;
   let mobileMenuVisible = false;
   function toggleMenu() {
@@ -41,7 +45,8 @@
 
       <!-- secondary nav -->
       <div class="hidden md:flex items-center space-x-1">
-        <a href="https://github.com/sewdohe" class="py-5 px-3">Github</a>
+        <a href="https://github.com/sewdohe" class="py-5 px-3 text-4xl hover:text-green"><Fa icon={faGithub} /></a>
+        <a href="https://twitter.com/sewdohe" class="py-5 px-3 text-4xl hover:text-green"><Fa icon={faTwitter} /></a>
       </div>
     </div>
   </div>
