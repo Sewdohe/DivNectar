@@ -9,7 +9,16 @@ tags: ["neovim", "config", "editor", "tooling"]
 layout: '../../layouts/BlogLayout.astro'
 ---
 
+import { Mdx } from '../../components/Mdx'
+export const components = Mdx
+
 ## Introducing - NeoCode
 
-NeoCode is a custom Neovim configuration I've made over the past year or so. It's written in Lua, and is a breeze to modify if you feel
+NeoCode is a custom Neovim configuration I've made over the past year or so. It's written in Lua, is super minimal, has great default keybinds, and is a breeze to modify if you feel
 like doing so.
+
+<img class="outline outline-pink outline-1 my-16 w-full max-w-6xl rounded-xl shadow-xl" src="/neocode-preview.gif" alt="Neocde gif of cursor flying around with animations" />
+
+I've developed Neocode with ease-of-use in mind. My goal with the project is to make the transition from a traditional code editor (vs code mainly) as easy of a transition
+as possible for a new user. Neovim is a fantastic editor, it's just one that takes lots of tuning and work to make awesome, and Neocode attempts to do all the wrenching and
+heavy work for you, leaving you a full-featured IDE with the best of modal editing that Neovim has to offer as well as a plugin ecosystem to match that of VS Code itself.

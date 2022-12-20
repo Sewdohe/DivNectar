@@ -1,0 +1,23 @@
+---
+import Chip from "../../components/Chip.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob("../blog/*.mdx");
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<BaseLayout
+  title={"Divnectar - Tags"}
+  description={"Tags from Divnectar's blog posts"}
+>
+  <div class="flex justify-center content-center items-center h-full">
+    <div class="m-2 flex flex-wrap justify-center max-w-md h-full">
+        {
+          tags.map((tag) => (
+            <Chip>
+              <a class="text-background" href={`/tags/${tag}`}>{tag}</a>
+            </Chip>
+          ))
+        }
+    </div>
+  </div>
+</BaseLayout>

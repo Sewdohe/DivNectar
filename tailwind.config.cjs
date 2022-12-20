@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		colors: {
 			background: '#282a36',
-			navbar: '#44475abb',
+			navbar: 'rgba(68, 71, 90, 0.45)',
 			surface: '#44475a',
 			foreground: '#f8f8f2',
 			backgroundAlt: '#6272a4',

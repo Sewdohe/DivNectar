@@ -12,15 +12,35 @@ interface Props {
   next?: string;
   prev?: string;
   canonicalURL?: string;
+  pubDate?: string;
 }
 
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   image = "https://divnectar.com/divnectar.png",
+  pubDate
 } = Astro.props as Props;
 
-console.log(image)
+console.log(image);
+
+let schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: title,
+  image: [
+    "https://divnectar.com/" + image,
+  ],
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: [
+    {
+      "@type": "Person",
+      name: "Josh Melton (Sewdohe)",
+      url: "https://divnectar.com/resume",
+    },
+  ],
+});
 ---
 
 <script>
@@ -32,32 +52,38 @@ console.log(image)
   import SwupHeadPlugin from "@swup/head-plugin";
   // @ts-ignore
   import SwupScrollPlugin from "@swup/scroll-plugin";
+  // @ts-ignore
+  import SwupGtmPlugin from "@swup/gtm-plugin";
 
   const swup = new Swup({
+    animateHistoryBrowsing: true,
     plugins: [
-      new SwupScrollPlugin(),
+      new SwupScrollPlugin({
+        offset: 70,
+      }),
       new SwupHeadPlugin(),
       new SwupSlideTheme(),
+      new SwupGtmPlugin(),
     ],
   });
 </script>
+
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- JSON LD Snippet -->
+    <script type="application/ld+json" set:html={schema}></script>
+
     <!-- Google Analytics Code -->
     <Analytics />
 
-    <BaseHead
-      title={title}
-      description={description}
-      image={image}
-    />
+    <BaseHead title={title} description={description} image={image} />
   </head>
-  <body class="bg-background antialiased text-foreground">
+  <body class="bg-background antialiased text-foreground h-full">
     <Navigation title={title} client:load />
-    <main id="swup" class="wrapper pt-16">
+    <main id="swup" class="wrapper pt-20 h-full">
       <slot />
     </main>
     <Footer />

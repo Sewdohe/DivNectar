@@ -8,7 +8,7 @@
 </script>
 
 <!-- navbar goes here -->
-<nav class="bg-navbar shadow-lg top-0 backdrop-blur-xl z-20 h-70 fixed w-screen">
+<nav class="bg-navbar border-b-2 border-pink shadow-xl top-0 backdrop-blur-xl z-20 h-70 fixed w-screen">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between">
       <div class="flex space-x-4">
@@ -27,6 +27,10 @@
           <a
             href="/blog"
             class="py-5 px-3 text-purple hover:text-green font-bold transition-all">Blog</a
+          >
+          <a
+            href="/tags"
+            class="py-5 px-3 text-purple hover:text-green font-bold transition-all">Tags</a
           >
           <a
             href="/resume"

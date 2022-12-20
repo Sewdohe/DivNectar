@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Post {
+  url: string | URL | null | undefined;
+  frontmatter: {
+    featuredImage: string;
+    title: unknown;
+    pubDate: string | number | Date;
+  };
+}
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../blog/*.mdx");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.frontmatter.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout title={"Divnectar Tags: " + tag}>
+  <h2 class="mx-2 font-extrabold leading-tighter tracking-tighter mb-4 font-heading text-center text-green">Posts tagged with {tag}</h2>
+  <section>
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+        {
+          posts.map((post: Post) => (
+            <>
+              <article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg max-w-lg">
+                <a href={post.url}>
+                  <img
+                    alt="Placeholder"
+                    class="block h-auto relative w-full"
+                    style="z-index: 3"
+                    src={"/featuredImages/" + post.frontmatter.featuredImage}
+                  />
+                </a>
+
+                <header class="flex items-center justify-between leading-tight p-4 md:p-4">
+                  <h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
+                    <a
+                      class="no-underline hover:underline text-blue"
+                      href={post.url}
+                    >
+                      {post.frontmatter.title}
+                    </a>
+                  </h1>
+                  <time
+                    class="text-pink text-lg"
+                    datetime={post.frontmatter.pubDate.toString()}
+                  >
+                    {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                      "en-us",
+                      {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      }
+                    )}
+                  </time>
+                </header>
+
+                <footer class="flex items-center justify-between leading-none p-4 md:p-4">
+                  <a
+                    class="flex items-center no-underline hover:underline text-black"
+                    href="#"
+                  >
+                    <img
+                      alt="Placeholder"
+                      class="block rounded-full"
+                      src="https://picsum.photos/32/32/?random"
+                    />
+                    <p class="ml-2 text-orange text-sm">Sewdohe</p>
+                  </a>
+                  <a
+                    class="no-underline text-grey-darker hover:text-red-dark"
+                    href="#"
+                  >
+                    <span class="hidden">Like</span>
+                    <i class="fa fa-heart" />
+                  </a>
+                </footer>
+              </article>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
