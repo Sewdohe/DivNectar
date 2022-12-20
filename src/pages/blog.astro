@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Chip from "../components/Chip.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -7,78 +8,81 @@ import MySiteLayout from "../layouts/BaseLayout.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-	(a, b) =>
-		new Date(b.frontmatter.pubDate).valueOf() -
-		new Date(a.frontmatter.pubDate).valueOf()
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
 
 <MySiteLayout>
-	<section>
-		<div class="container my-12 mx-auto px-4 md:px-12">
-			<div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
-				{
-					posts.map((post) => (
-						<>
-							<article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg max-w-lg">
-								<a href={post.url}>
-									<img
-										alt="Placeholder"
-										class="block h-auto relative w-full"
-										style="z-index: 3"
-										src={'/featuredImages/' + post.frontmatter.featuredImage}
-									/>
-								</a>
+  <section>
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+        {
+          posts.map((post) => (
+            <>
+              <article class="bg-surface overflow-hidden m-8 rounded-lg shadow-lg max-w-lg">
+                <a href={post.url}>
+                  <img
+                    alt="Placeholder"
+                    class="block h-auto relative w-full"
+                    style="z-index: 3"
+                    src={"/featuredImages/" + post.frontmatter.featuredImage}
+                  />
+                </a>
 
-								<header class="flex items-center justify-between leading-tight p-4 md:p-4">
-									<h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
-										<a
-											class="no-underline hover:underline text-blue"
-											href={post.url}
-										>
-											{post.frontmatter.title}
-										</a>
-									</h1>
-									<time
-										class="text-pink text-lg"
-										datetime={post.frontmatter.pubDate}
-									>
-										{new Date(post.frontmatter.pubDate).toLocaleDateString(
-											"en-us",
-											{
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											}
-										)}
-									</time>
-								</header>
+                <header class="flex items-center justify-between leading-tight p-4 md:p-4">
+                  <h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
+                    <a
+                      class="no-underline hover:underline text-blue"
+                      href={post.url}
+                    >
+                      {post.frontmatter.title}
+                    </a>
+                  </h1>
+                  <time
+                    class="text-pink text-lg"
+                    datetime={post.frontmatter.pubDate}
+                  >
+                    {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                      "en-us",
+                      {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      }
+                    )}
+                  </time>
+                </header>
 
-								<footer class="flex items-center justify-between leading-none p-4 md:p-4">
-									<a
-										class="flex items-center no-underline hover:underline text-black"
-										href="#"
-									>
-										<img
-											alt="Placeholder"
-											class="block rounded-full"
-											src="https://picsum.photos/32/32/?random"
-										/>
-										<p class="ml-2 text-orange text-sm">Sewdohe</p>
-									</a>
-									<a
-										class="no-underline text-grey-darker hover:text-red-dark"
-										href="#"
-									>
-										<span class="hidden">Like</span>
-										<i class="fa fa-heart" />
-									</a>
-								</footer>
-							</article>
-						</>
-					))
-				}
-			</div>
-		</div>
-	</section>
+                <footer class="flex items-center justify-between leading-none p-4 md:p-4 flex-col">
+                  <a
+                    class="flex items-center no-underline hover:underline text-black"
+                    href="/resume"
+                  >
+                    <img
+                      alt="Placeholder"
+                      class="block rounded-full"
+											style="height: 48px"
+                      src="/me.png"
+                    />
+                    <p class="ml-2 text-orange text-sm">Sewdohe</p>
+                  </a>
+                  <div class="m-2 flex flex-wrap justify-center align-bottom max-w-md h-full">
+                    {post.frontmatter.tags.map((tag: string) => (
+                      <Chip class="max-w-sm">
+                        <a class="text-background text-sm" href={`/tags/${tag}`}>
+                          {tag}
+                        </a>
+                      </Chip>
+                    ))}
+                  </div>
+                </footer>
+              </article>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </MySiteLayout>
