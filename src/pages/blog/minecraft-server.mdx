@@ -12,22 +12,50 @@ layout: "../../layouts/BlogLayout.astro"
 import { Mdx } from "../../components/Mdx";
 export const components = Mdx;
 
+<img src="/divnectar-minecraft-server.png" />
+
 # CraftNectar
 
 I finally made a Minecraft server! 
 
 I've been wating to do this for years and years! It feels so good to have finally done it.
 
-## Connection
+## How to Connect
 
-The server is compatible with the following clients:
+**The server is compatible with the following clients:**
   * Better Minecraft [Forge] 1.19.2
 
-Use the Curseforge app to download the client needed to connect to the server
+## Windows & MacOS
+Use the Curseforge app or FTB (fead the beast) app to download the client needed (better minecraft 3 v1.19.2) to connect to the server 
+
+## Linux
+On Linux, setup is a bit more involved. Here is a short rundown on how I got it working:
+1. Install Feed the Beast app and multimc5
+We will need FTB to get the modpack and multiMC5 in order to launch the modpack 
+```
+yay -S ftba multimc5
+```
+2. Open FTB app and click browse
+3. Switch the tab to curseforge
+4. Search for Better Minecraft 1.19.2
+5. Download modpack
+6. Once done, click the 3 button menu on the install to open the folder for it. Leave this window open for later.
+7. Open multiMC and create a vanilla 1.19.2 instance
+8. Launch the instance once. You will have to provide your account info.
+9. Close the game once launched, then use multiMC to open the directory for the vanilla install
+10. Using the window from step 6, drag and drop all the files from the FTB instance into the vanilla instance folder. Overwrite all files.
+11. Click edit instance in multiMC and under version tab click install Forge and select v43.1.57
+12. Be sure to give the instance PLENTY of GB of ram in order to play correctly 
 
 You can get the modpack from here:  [here](https://www.curseforge.com/minecraft/modpacks/better-mc-modpack "Better Minecraft")
 
-You won't need to download any of the server-side mods.
+
+
+## Some Important Notes
+- You can't break bricks in a 7x7 area around spawn.
+- M key brings up the minimap.
+- right click a chunk on the minimap to claim land
+- all mods are meant to be a "vanilla" addition to the game
 
 ## Donation
 
