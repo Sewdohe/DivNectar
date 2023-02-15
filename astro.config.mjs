@@ -23,6 +23,9 @@ import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
+import react from "@astrojs/react";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://divnectar.com',
   markdown: {
@@ -38,11 +41,9 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), 
-  partytown({
-    config: { 
-      forward: ["dataLayer.push"] ,
-    },
-  }), 
-  svelte()],
+  integrations: [mdx(), sitemap(), tailwind(), prefetch(), image(), partytown({
+    config: {
+      forward: ["dataLayer.push"]
+    }
+  }), svelte(), react()]
 });
