@@ -16,23 +16,21 @@ interface ServerStats {
 
 let serverStats: ServerStats = {};
 
+
 export const Minestat = () => {
   const [stats, setStats] = useState(serverStats)
 
-  ms.init('craft.divnectar.com', 25565, () => {
-    console.log("get data")
-    console.log(stats)
-    serverStats.online = ms.online;
-    serverStats.address = ms.address;
-    serverStats.port = ms.port;
-    serverStats.latency = ms.latency;
-    serverStats.version = ms.version;
-    serverStats.motd = ms.motd;
-    serverStats.current_players = ms.current_players;
-    serverStats.max_players = ms.max_players;
-    setStats(ms)
-    console.log(stats)
-  })
+  function getStats() {
+    let tempStats = {}
+    ms.init('craft.divnectar.com', 25565, () => {
+      tempStats = {
+        online: ms.online,
+        current_players: ms.current_players
+      }
+    })
+    console.log(tempStats)
+    setStats(tempStats)
+  }
 
   return (
     <div>

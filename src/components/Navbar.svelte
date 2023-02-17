@@ -12,7 +12,7 @@
 </script>
 
 <!-- navbar goes here -->
-<nav class="bg-navbar border-b-2 border-pink shadow-xl top-0 backdrop-blur-xl z-20 h-70 fixed w-screen">
+<nav class="bg-navbar border-b-1 border-pink shadow-xl top-0 backdrop-blur-xl z-20 h-70 fixed w-screen">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between">
       <div class="flex space-x-4">
